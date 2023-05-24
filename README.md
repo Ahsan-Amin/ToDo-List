@@ -1,2 +1,5 @@
 # ToDo-List
-npm install init
+npm install webpacks
+npm init
+npm css-loader
+npm style-loader
