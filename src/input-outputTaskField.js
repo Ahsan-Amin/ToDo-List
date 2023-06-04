@@ -1,11 +1,16 @@
 import { addTask } from "./AddTask";
 import { showTasks} from "./renderTasks";
 
-const createTaskInput = (tasks) => {
+const createTaskInput = (tasks,projectName) => {
   // Create HTML Code by using javascript for Add Project Code
 const mainContainer = document.getElementsByClassName("container-1")[0];
 const aside = document.createElement("aside");
 mainContainer.appendChild(aside);
+
+const heading = document.createElement("h2");
+heading.className = "Task-Heading";
+heading.textContent=projectName;
+aside.appendChild(heading);
 
 const AddProject = document.createElement("div");
 AddProject.className = "addProject";
