@@ -229,11 +229,13 @@ aside{
   box-shadow: rgba(1, 1, 1, 0.25) 0px 54px 55px, rgba(6, 5, 5, 0.12) 0px -12px 30px, rgba(17, 13, 13, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
 }
+
 .addProject span{
     margin-top: 6px;
     font-size: 30px;
     font-weight: 900;
 }
+
 .addProject img {
   height: 40px;
   width: 40px;

@@ -4,11 +4,13 @@ import {createTaskInput} from "./input-outputTaskField";
 import { showTasks} from "./renderTasks";
 
 let ID_COUNTER = 1;
+let SELECTE_ID;
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 const addButton = document.getElementById("addButton");
 
 const TaskContainerArray= [];
+
 
 
 
@@ -27,11 +29,12 @@ addButton.addEventListener("click", () => {
     addProject(Project.projectName, listContainer);
     saveProjectName();
 
+    SELECTE_ID=ID_COUNTER;
     inputBox.value = '';
     ID_COUNTER++;
   }
   saveProjectTasks(TaskContainerArray);
-
+  saveSelectedTask();
 });
 
 listContainer.addEventListener("click", function(e) {
@@ -60,6 +63,8 @@ listContainer.addEventListener("click", function(e) {
     createTaskInput(getTasksArray,projectName)
     showTasks(getTasksArray);
     saveProjectTasks(TaskContainerArray);
+    SELECTE_ID=index;
+    saveSelectedTask();
   }
   else if (clickedElement.tagName === "SPAN") {
     e.target.parentElement.remove();
@@ -108,3 +113,16 @@ const getProjectTasks = (TaskContainerArray) => {
 getProjectTasks(TaskContainerArray);
 showDataAfterStoreData();
 
+const saveSelectedTask =()=> {
+localStorage.setItem("selected-Id",SELECTE_ID)
+}
+
+const getSelectedTask=()=>{
+  SELECTE_ID = localStorage.getItem("selected-Id");
+  const getTasksArray = TaskContainerArray[SELECTE_ID].tasks;
+const projectName=TaskContainerArray[SELECTE_ID].projectName;
+createTaskInput(getTasksArray,projectName)
+showTasks(getTasksArray);
+}
+
+getSelectedTask();
